@@ -4,6 +4,11 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+
+    fingerprint: {
+      prepend: '/Zhoppy/',
+    },
+
     emberData: {
       deprecations: {
         // New projects can safely leave this deprecation disabled.

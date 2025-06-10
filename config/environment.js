@@ -4,8 +4,8 @@ module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'assessment-3',
     environment,
-    rootURL: '/',
-    locationType: 'history',
+    rootURL: '/Zhoppy/',  
+    locationType: 'hash',
     EmberENV: {
       EXTEND_PROTOTYPES: false,
       FEATURES: {
