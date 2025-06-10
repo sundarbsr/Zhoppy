@@ -1,0 +1,51 @@
+{
+    "users" : {
+        "id": "String",
+        "role": "String", // Buyer/ Seller/ Admin
+        "name": "String",
+        "email": "Email",
+        "password": "Password",
+
+        "purchase-data": {
+            "cart": [{
+                "p_id": "String",
+                "count": "Int"
+            }],
+            "orders-placed": ["o_id"]
+        },
+
+        "seller-data": {
+            "listed-products": ["p_id"],
+            "recived-orders": ["order_id"],
+            "company-name": "",
+            "selling-approved": false
+        }
+    },
+
+    "products" : {
+        "id": "String",
+        "seller_id": "String",
+        "name": "String",
+
+        "product-details" : {
+            "image": "String",
+            "brand": "String",
+            "category": "String",
+            "color": "String",
+            "detials": "String"
+        },
+
+        "inventory-data" : {
+            "price": "Int",
+            "discount": "Int",
+            "count": "String"
+        },
+        
+
+        "rating": [{
+            "user_id": "String",
+            "rating": "Int"
+        }]
+
+    }
+}
