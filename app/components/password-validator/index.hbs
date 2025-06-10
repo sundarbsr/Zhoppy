@@ -1,0 +1,41 @@
+<div class="forContent">
+  <label for="password">Password</label>
+  <Input @type="text" @value={{this.password}} placeholder="Password" {{on "input" this.validatePassword}} />
+
+  {{#if this.password}}
+    {{#if this.isValid}}
+      <p class="valid">✓ Valid Password</p>
+    {{else}}
+      <div>
+        <p class="{{if this.hasMinLength 'valid' 'invalid'}}">
+          {{if this.hasMinLength '✓' '✗'}} 5 Total Letters
+        </p>
+        <p class="{{if this.hasUppercase 'valid' 'invalid'}}">
+          {{if this.hasUppercase '✓' '✗'}} 1 UpperCase
+        </p>
+        <p class="{{if this.hasLowercase 'valid' 'invalid'}}">
+          {{if this.hasLowercase '✓' '✗'}} 1 LowerCase
+        </p>
+        <p class="{{if this.hasDigit 'valid' 'invalid'}}">
+          {{if this.hasDigit '✓' '✗'}} 1 Digit
+        </p>
+        <p class="{{if this.hasSpecialChar 'valid' 'invalid'}}">
+          {{if this.hasSpecialChar '✓' '✗'}} 1 Special Character
+        </p>
+      </div>
+    {{/if}}
+  {{/if}}
+</div>
+
+
+
+{{#if this.showConfirm}}
+  <div class="forContent">
+    <label for="confirmPassword">Confirm Password</label>
+    <Input @type="password" @value={{this.confirmPassword}} placeholder="Confirm Password" 
+      {{on "input" this.validateConfirmPassword}} />
+    {{#if this.passwordMatch}}
+      <p class="valid">✓ Password Matching</p>
+    {{/if}}
+  </div>
+{{/if}} 

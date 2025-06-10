@@ -1,0 +1,32 @@
+<div class="products-div">
+  <div class="search-box-div">
+    <input
+      type="text"
+      placeholder="Search by name or brand"
+      class="search-input"
+      {{on "input" this.updateSearchQuery}}
+    />
+    <select class="filter-select" {{on "change" this.updateCategoryFilter}}>
+      <option value="">All Categories</option>
+      <option value="shirt">Shirt</option>
+      <option value="pant">Pant</option>
+      <option value="saree">Saree</option>
+    </select>
+
+    <select class="filter-select" {{on "change" this.updateColorFilter}}>
+      <option value="">All Colors</option>
+      <option value="Red">Red</option>
+      <option value="Blue">Blue</option>
+      <option value="Green">Green</option>
+      <option value="Black">Black</option>
+      <option value="White">White</option>
+      <option value="Pink">Pink</option>
+    </select>
+  </div>
+
+    <div class="products-grid">
+      {{#each this.filteredProducts as |product|}}
+        <ProductCard @product={{product}} />
+      {{/each}}
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="products-div">
+  <h1>Products in Cart:</h1>
+
+  {{#if this.model}}
+
+  <div class="cart-content">
+    <div class="cart-grid">
+      {{#each this.model as |item|}}
+        <div class="cart-row">
+          <div class="column image-column">
+            <img src={{item.product.product-details.image}} alt="Product image" class="cart-image" />
+          </div>
+
+          <div class="column info-column">
+            <h2>{{item.product.name}}</h2>
+            <p><strong>Brand:</strong> {{item.product.product-details.brand}}</p>
+            <p><strong>Quantity:</strong> {{item.count}}</p>
+
+            <div class="product-price">
+              <span class="discounted-price">₹{{this.discountedPrice item.product.inventory-data.price item.product.inventory-data.discount}}</span>
+              <span class="original-price">₹{{item.product.inventory-data.price}}</span>
+              <span class="discount-percent">({{item.product.inventory-data.discount}} OFF)</span>
+            </div>
+          </div>
+
+          <button class="cart-delete-button" {{on "click" (fn this.removeProduct item.product.id)}}><img src="/images/delete.svg" width="20px" height="20px"></button>
+        </div>
+      {{/each}}
+      
+    </div>
+
+    {{!-- <div class="cart-total">
+      <h2>Price Details:</h2>
+      <span>Price : </span>
+      <span class="cart-total-value">₹ {{this.price}}</span><br>
+
+      <span>Discount: </span>
+      <span class="cart-total-value">- ₹ {{this.discount}}</span><br>
+
+      <span>Total Amount: </span>
+      <span class="cart-total-value">₹ {{this.total}}</span>
+      
+    </div>  --}}
+
+    <div class="cart-total">
+    <h2>Price Details:</h2>
+
+    <div class="cart-total-row">
+        <span>Price:</span>
+        <span class="cart-total-value">₹ {{this.price}}</span>
+      </div>
+
+      <div class="cart-total-row">
+        <span>Discount:</span>
+        <span class="cart-total-value">- ₹ {{this.discount}}</span>
+      </div>
+
+      <div class="cart-total-row total-row">
+        <span>Total Amount:</span>
+        <span class="cart-total-value">₹ {{this.total}}</span>
+      </div>
+    </div>
+
+  </div>
+
+  {{else}}
+    <p>No Data Found</p>
+  {{/if}}
+</div>

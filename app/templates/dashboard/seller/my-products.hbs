@@ -1,0 +1,17 @@
+<section class="products-page">
+  <div class="products-header">
+    <h2 class="products-title">Your Products</h2>
+    <LinkTo @route="dashboard.seller.add-product" class="add-product-button">
+      + Add Product
+    </LinkTo>
+  </div>
+
+  <div class="products-grid">
+    {{#each this.model as |product|}}
+      <ProductCard
+        @product={{product}}
+        @isSeller={{true}}
+       />
+    {{/each}}
+  </div>
+</section>

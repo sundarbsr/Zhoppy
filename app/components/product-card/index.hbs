@@ -1,0 +1,45 @@
+<div class="product-card" {{on "click" (fn this.goToDetails this.args.product)}}>
+    <div class="product-image-div">
+      <img src={{this.imageUrl}} alt="Product Image" class="product-image" />
+      {{#if @isSeller}}
+      <div class="product-button-div">
+        <button class="product-button" {{on "click" (fn this.editProduct @product.id)}}><img src="/images/edit.svg" width="20px" height="20px"></button>
+        <button class="product-button" {{on "click" (fn this.deleteProduct @product.id)}}><img src="/images/delete.svg" width="20px" height="20px"></button>
+      </div>
+      {{/if}}
+    </div>
+  
+
+  <div class="product-info">
+    <p class="product-brand">{{this.brand}}</p>
+    <p class="product-name">{{@product.name}}</p>
+
+    <div class="product-price">
+      <span class="discounted-price">₹{{this.discountedPrice}}</span>
+      <span class="original-price">₹{{this.price}}</span>
+      <span class="discount-percent">({{@product.inventory-data.discount}} OFF)</span>
+    </div>
+  </div>
+</div>
+
+{{!-- <div class="product-card">
+  <img src={{@product.product-details.image}} alt="Product Image" class="product-image" />
+
+  <div class="product-info">
+    <p class="product-brand">{{@product.product-details.brand}}</p>
+    <p class="product-name">{{@product.name}}</p>
+
+    <div class="product-price">
+      <span class="discounted-price">₹{{this.discountedPrice}}</span>
+      <span class="original-price">₹{{@product.inventory-data.price}}</span>
+      <span class="discount-percent">({{@product.inventory-data.discount}}% OFF)</span>
+    </div>
+
+    <div class="action-buttons">
+      <button type="button" {{on "click" (fn this.editProduct @product.id)}}>Edit</button>
+      <button type="button" {{on "click" (fn this.deleteProduct @product.id)}}>Delete</button>
+    </div>
+  </div>
+</div> --}}
+
+

@@ -1,0 +1,56 @@
+<AuthTemplate>
+    <h2>Create</h2>
+    <h2>your <span style="color: rgb(145, 212, 226);"> account</span></h2>
+
+    <div class="toggle-switch-div">
+      <p>Seller</p>
+      <label class="toggle-switch">
+        <input type="checkbox" {{on "change" this.handleToggle}}/>
+        <span class="slider"></span>
+      </label>
+    </div>
+    
+    <form {{on "submit" this.signup}}>
+
+      {{#if this.isSeller}}
+        <div class="forContent">
+          <label for="companyname">Company Name</label>
+          <Input @type="text" @value={{this.companyname}} id="companyname" name="companyname" placeholder="Company Name" />
+          {{#if this.companyname}}
+            {{#unless (username-validator this.companyname)}}
+              <p class="invalid">✗ Mininum 2 Character</p>
+            {{/unless}}
+          {{/if}}
+        </div>
+
+      {{else}}
+          <div class="forContent">
+          <label for="username">Username</label>
+          <Input @type="text" @value={{this.username}} id="username" name="username" placeholder="Username" />
+          {{#if this.username}}
+            {{#unless (username-validator this.username)}}
+              <p class="invalid">✗ Mininum 2 Character</p>
+            {{/unless}}
+          {{/if}}
+        </div>
+      {{/if}}
+
+      <div class="forContent">
+        <label for="email">Email</label>
+        <Input @type="text" @value={{this.email}} id="email" name="email" placeholder="Email" />
+        {{#if this.email}}
+          {{#unless (email-validator this.email)}}
+            <p class="invalid">✗ Invalid Email ID</p>
+          {{/unless}}
+        {{/if}}
+      </div>
+      
+      <PasswordValidator  @updatePassword={{this.updatePassword}} @updatePasswordVerification={{this.updatePasswordVerification}}/>
+      
+      {{#if this.error}} 
+        <p class="invalid">{{this.error}}</p>
+      {{/if}}
+      
+      <input id="submit" type="submit" value="{{if this.isSeller "Request" "SignUp"}}">
+    </form>
+</AuthTemplate>

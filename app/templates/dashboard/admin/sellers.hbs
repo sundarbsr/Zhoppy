@@ -1,0 +1,76 @@
+{{!-- <h2 class="text-2xl font-bold mb-4">Sellers Management</h2>
+
+<table class="table-auto w-full border-collapse border border-gray-300">
+  <thead>
+    <tr class="bg-gray-100">
+      <th class="border px-4 py-2">ID</th>
+      <th class="border px-4 py-2">Name</th>
+      <th class="border px-4 py-2">Email</th>
+      <th class="border px-4 py-2">Company</th>
+      <th class="border px-4 py-2">Approved</th>
+      <th class="border px-4 py-2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.model as |user|}}
+      <tr>
+        <td class="border px-4 py-2">{{user.id}}</td>
+        <td class="border px-4 py-2">{{user.name}}</td>
+        <td class="border px-4 py-2">{{user.email}}</td>
+        <td class="border px-4 py-2">{{user.seller-data.company-name}}</td>
+        <td class="border px-4 py-2">
+        {{if user.seller-data.selling-approved "✅" "❌"}}
+        </td>
+        <td class="border px-4 py-2">
+        {{#unless user.seller-data.selling-approved}}
+            <button
+            type="button"
+            class="bg-green-500 text-white px-2 py-1 rounded"
+            {{on "click" (fn this.approveSeller user)}}
+            >
+            Approve
+            </button>
+        {{else}}
+            <span class="text-gray-500">Approved</span>
+        {{/unless}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table> --}}
+
+
+<h2 class="text-2xl font-bold mb-4">Sellers Management</h2>
+
+<table class="sellers-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Company</th>
+      <th>Approved</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.model as |user|}}
+      <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.seller-data.company-name}}</td>
+        <td>{{if user.seller-data.selling-approved "✅" "❌"}}</td>
+        <td>
+          {{#unless user.seller-data.selling-approved}}
+            <button type="button" class="approve-btn" {{on "click" (fn this.approveSeller user)}}>
+              Approve
+            </button>
+          {{else}}
+            <span class="approved-label">Approved</span>
+          {{/unless}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

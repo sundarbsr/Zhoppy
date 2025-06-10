@@ -1,0 +1,27 @@
+/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+/* @import url("./home.css"); */
+@import url("./signin.css");
+@import url("topbar.css");
+@import url("./dashboard.css");
+@import url("./products.css");
+@import url("./product-card.css");
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* background-color:rgb(188 222 230); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.application {
+    padding: 0%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

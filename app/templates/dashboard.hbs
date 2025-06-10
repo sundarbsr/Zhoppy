@@ -1,0 +1,13 @@
+<div class="dashBoardDiv">
+    <Topbar @user={{this.model}} 
+        @currentView={{this.currentView}}
+        @setCurrentView={{this.setCurrentView}}/>
+    <div class="dashboardContent">
+        <Sidebar @user={{this.model}} @currentView={{this.currentView}}/>
+        <div class="mainContent">
+           {{outlet}}
+        </div>
+    </div>
+</div>
+
+ 

@@ -1,0 +1,86 @@
+<h2 class="form-heading">Add New Product</h2>
+
+<form {{on "submit" this.submitProduct}} class="product-form">
+
+  <div class="form-group">
+    <label class="form-label">Product Name</label>
+    <input type="text" {{on "input" (fn this.updateField "name")}} class="form-input" />
+  </div>
+
+  <fieldset class="form-fieldset">
+    <legend class="form-legend">Product Details</legend>
+
+    <div class="form-group">
+      <label class="form-label">Image URL</label>
+      <input type="text" {{on "input" (fn this.updateProductDetail "image")}} class="form-input" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Brand</label>
+      <input type="text" {{on "input" (fn this.updateProductDetail "brand")}} class="form-input" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Category</label>
+      <select {{on "change" (fn this.updateProductDetail "category")}} class="form-input">
+        <option value="">Select</option>
+        <option value="shirt">Shirt</option>
+        <option value="pant">Pant</option>
+        <option value="saree">Saree</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+     <label class="form-label">Color</label>
+        <select {{on "change" (fn this.updateProductDetail "color")}} class="form-input">
+            <option value="">Select</option>
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+            <option value="Pink">Pink</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Details</label>
+      <textarea {{on "input" (fn this.updateProductDetail "detials")}} class="form-input textarea-input"></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset class="form-fieldset">
+    <legend class="form-legend">Inventory</legend>
+
+    <div class="form-group">
+      <label class="form-label">Price</label>
+      <input type="number" {{on "input" (fn this.updateInventoryData "price")}} class="form-input" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Discount (%)</label>
+      <input type="number" {{on "input" (fn this.updateInventoryData "discount")}} class="form-input" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Stock Count</label>
+      <input type="number" {{on "input" (fn this.updateInventoryData "count")}} class="form-input" />
+    </div>
+  </fieldset>
+
+  <fieldset class="form-fieldset">
+    <legend class="form-legend">Product Status</legend>
+
+    <div class="form-group">
+      <label class="form-label">Status</label>
+      <select {{on "change" (fn this.updateVisibility)}} class="form-input">
+            <option value="">Select</option>
+            <option value="visible" selected>Visible</option>
+            <option value="not-visible">Not Visible</option>
+        </select>
+    </div>
+
+  </fieldset>
+
+  <button type="submit" class="submit-button">Add Product</button>
+</form>

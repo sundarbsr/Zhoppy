@@ -1,0 +1,22 @@
+<header class="topBarDiv">
+    
+    <div class="topBarTitle">
+        {{!-- <a href="#" class="topbar-nav-link selected" >Zhoppy</a> --}}
+        <LinkTo @route="dashboard.buyer.products" class="topbar-nav-link" @activeClass="selected" {{on "click" (fn this.setView "buyer")}}>Zhoppy</LinkTo>
+    </div>
+
+    <nav class="topBarNavbar">
+        {{#if this.isSeller}}
+        <LinkTo @route="dashboard.seller.my-products" class="topbar-nav-link" @activeClass="selected" {{on "click" (fn this.setView "seller")}}>Seller</LinkTo>
+        {{/if}}
+
+        {{#if this.isAdmin}}
+        <LinkTo @route="dashboard.admin.sellers" class="topbar-nav-link" @activeClass="selected" {{on "click" (fn this.setView "admin")}}>Admin</LinkTo>
+        {{/if}}
+    </nav>
+    
+    <div class="topBarAccounts">
+        {{this.userInitial}}
+    </div>
+    <button {{on "click" this.logOut }} >Log out</button>
+</header>

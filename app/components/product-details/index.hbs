@@ -1,0 +1,45 @@
+<div class="details-container">
+  <img class="details-image" src={{@product.product-details.image}} alt="Product image" />
+
+  <div class="details-info">
+    {{#if @isSeller}}
+        <div class="details-action-button">
+            <button class="details-btn details-edit-btn" {{on "click" this.editProduct}}>Edit</button>
+            <button class="details-btn details-delete-btn" {{on "click" this.deleteProduct}}>Delete</button>
+        </div>
+    {{/if}}
+    
+     
+    <h2 class="details-name">{{@product.name}}</h2>
+    <p class="details-brand">Brand: {{@product.product-details.brand}}</p>
+    <p class="details-category">Category: {{@product.product-details.category}}</p>
+    <p class="details-color">Color: {{@product.product-details.color}}</p>
+    <p class="details-description">{{@product.product-details.detials}}</p>
+    
+    <div class="details-pricing">
+      ₹{{@product.inventory-data.price}}
+      {{#if @product.inventory-data.discount}}
+        <span class="details-discount">({{@product.inventory-data.discount}}% OFF)</span>
+      {{/if}}
+    </div>
+
+    <p class="details-stock">Stock: {{@product.inventory-data.count}}</p>
+
+    {{#unless @isSeller}}
+        <div>
+            <div>
+                <label>Quantity:</label>
+                <select {{on "change" this.selectCount}}>
+                {{#each this.listCount as |num|}}
+                    <option value={{num}}>{{num}}</option>
+                {{/each}}
+                </select>
+            </div>
+            <div>
+                <button class="details-btn details-buy-btn" {{on "click" this.addToCart}}>Buy Now</button>
+                <button class="details-btn details-add-to-cart-btn" {{on "click" this.addToCart}}>Add to Cart</button>
+            </div>
+        </div>
+    {{/unless}}
+  </div>
+</div>
