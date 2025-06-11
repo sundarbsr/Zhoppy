@@ -5,7 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'assessment-3',
     environment,
     rootURL: '/Zhoppy/',  
-    locationType: 'hash',
+    locationType: 'history',
     EmberENV: {
       EXTEND_PROTOTYPES: false,
       FEATURES: {

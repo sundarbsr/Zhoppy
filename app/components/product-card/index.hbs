@@ -3,8 +3,8 @@
       <img src={{this.imageUrl}} alt="Product Image" class="product-image" />
       {{#if @isSeller}}
       <div class="product-button-div">
-        <button class="product-button" {{on "click" (fn this.editProduct @product.id)}}><img src="/images/edit.svg" width="20px" height="20px"></button>
-        <button class="product-button" {{on "click" (fn this.deleteProduct @product.id)}}><img src="/images/delete.svg" width="20px" height="20px"></button>
+        <button class="product-button" {{on "click" (fn this.editProduct @product.id)}}><img src="/Zhoppy/images/edit.svg" width="20px" height="20px"></button>
+        <button class="product-button" {{on "click" (fn this.deleteProduct @product.id)}}><img src="/Zhoppy/images/delete.svg" width="20px" height="20px"></button>
       </div>
       {{/if}}
     </div>

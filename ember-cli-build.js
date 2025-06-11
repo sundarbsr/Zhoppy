@@ -7,6 +7,7 @@ module.exports = function (defaults) {
 
     fingerprint: {
       prepend: '/Zhoppy/',
+      // prepend: process.env.EMBER_ENV === 'production' ? '/Zhoppy/' : '/',
     },
 
     emberData: {
