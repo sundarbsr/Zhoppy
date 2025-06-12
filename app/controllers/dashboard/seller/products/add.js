@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class AddProductController extends Controller {
+export default class SellerProductsAddController extends Controller {
   @service auth;
   @service products;
   @service router;
@@ -73,7 +73,7 @@ export default class AddProductController extends Controller {
     try {
       console.log('Submitting:', this.newProduct);
       await this.products.addProduct(this.newProduct);
-      this.router.transitionTo('dashboard.seller.my-products');
+      this.router.transitionTo('dashboard.seller.products');
     } catch (error) {
       alert('Error while submitting product.');
       console.error(error);

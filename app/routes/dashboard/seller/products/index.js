@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
-export default class MyProductsRoute extends Route {
+export default class SellerProductsIndexRoute extends Route {
   @service auth
   @service products;
   @service router;

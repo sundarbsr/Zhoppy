@@ -28,14 +28,15 @@ export default class ProductDetailsComponent extends Component {
 
     @action 
     editProduct(){
-        this.router.transitionTo('dashboard.seller.edit-product', this.args.product.id);
+        this.router.transitionTo('dashboard.seller.products.edit', this.args.product.id);
     }
 
     @action 
     deleteProduct(){
         this.products.deleteProduct(this.args.product.id);
-        this.router.transitionTo('dashboard.seller.my-products');
         this.router.refresh();
+        this.router.transitionTo('dashboard.seller.products');
+        
     }
 
     @action

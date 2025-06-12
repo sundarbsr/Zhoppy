@@ -5,6 +5,6 @@ export default class DashboardAdminIndexRoute extends Route {
    @service router;
 
     beforeModel(){
-        this.router.transitionTo("dashboard.seller.my-products");
+        this.router.transitionTo("dashboard.seller.products");
     }
 }

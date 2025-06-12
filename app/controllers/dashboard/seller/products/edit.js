@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class DashboardSellerEditProductController extends Controller {
+export default class SellerProductsEditController extends Controller {
   @service router;
   @service products;
 
@@ -73,7 +73,7 @@ export default class DashboardSellerEditProductController extends Controller {
 
     try {
       await this.products.updateProduct(this.newProduct.id, this.newProduct);
-      this.router.transitionTo('dashboard.seller.my-products');
+      this.router.transitionTo('dashboard.seller.products');
     } catch (err) {
       console.error(err);
       alert('Failed to update product');

@@ -11,7 +11,7 @@ export default class ProductCardComponent extends Component {
   @action 
   editProduct(id, event){
     event.stopPropagation();
-    this.router.transitionTo('dashboard.seller.edit-product', id);
+    this.router.transitionTo('dashboard.seller.products.edit', id);
   }
 
   @action 
@@ -24,7 +24,7 @@ export default class ProductCardComponent extends Component {
   @action
   goToDetails(product) {
       if (this.args.isSeller == true){
-        this.router.transitionTo('dashboard.seller.details', product.id);
+        this.router.transitionTo('dashboard.seller.products.details', product.id);
       }else{
         this.router.transitionTo('dashboard.buyer.products.details', product.id);
       }

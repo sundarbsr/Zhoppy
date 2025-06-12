@@ -1,7 +1,7 @@
 <aside class="sidebar">
    <nav class="nav">
         {{#if this.isSeller}}
-            <LinkTo @route="dashboard.seller.my-products" class="nav-link" @activeClass="selected">My Products</LinkTo>
+            <LinkTo @route="dashboard.seller.products" class="nav-link" @activeClass="selected">My Products</LinkTo>
         {{else if this.isAdmin}}
             <LinkTo @route="dashboard.admin.sellers" class="nav-link" @activeClass="selected">Sellers</LinkTo>
         {{else}}
