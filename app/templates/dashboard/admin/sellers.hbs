@@ -49,7 +49,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Company</th>
-      <th>Approved</th>
+      <th>Status</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -60,15 +60,17 @@
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
         <td>{{user.seller-data.company-name}}</td>
-        <td>{{if user.seller-data.selling-approved "✅" "❌"}}</td>
+        <td>{{user.seller-data.selling-status}}</td>
         <td>
-          {{#unless user.seller-data.selling-approved}}
-            <button type="button" class="approve-btn" {{on "click" (fn this.approveSeller user)}}>
-              Approve
+          {{#if (eq user.seller-data.selling-status "Approved")}}
+            <button type="button" class="action-btn red-btn" {{on "click" (fn this.revokeSeller user)}}>
+              Revoke
             </button>
           {{else}}
-            <span class="approved-label">Approved</span>
-          {{/unless}}
+            <button type="button" class="action-btn green-btn" {{on "click" (fn this.approveSeller user)}}>
+              Approve
+            </button>
+          {{/if}}
         </td>
       </tr>
     {{/each}}

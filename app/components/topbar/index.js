@@ -24,7 +24,7 @@ export default class SideBarComponent extends Component {
 
    
     get isSeller() {
-        return (this.user.role == 'seller' && this.user["seller-data"]["selling-approved"]) ;
+        return (this.user.role == 'seller' && this.user["seller-data"]["selling-status"] == "Approved") ;
     }
 
     get isAdmin() {

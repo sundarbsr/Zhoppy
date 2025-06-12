@@ -1,17 +1,18 @@
 <header class="topBarDiv">
     
     <div class="topBarTitle">
-        {{!-- <a href="#" class="topbar-nav-link selected" >Zhoppy</a> --}}
-        <LinkTo @route="dashboard.buyer.products" class="topbar-nav-link" @activeClass="selected" {{on "click" (fn this.setView "buyer")}}>Zhoppy</LinkTo>
+        <LinkTo @route="dashboard.buyer" class="topbar-nav-link" {{on "click" (fn this.setView "buyer")}}>Zhoppy</LinkTo>
     </div>
 
     <nav class="topBarNavbar">
+        <LinkTo @route="dashboard.buyer" class="topbar-nav-link" @activeClass="selected" {{on "click" (fn this.setView "buyer")}}>Home</LinkTo>
+
         {{#if this.isSeller}}
-        <LinkTo @route="dashboard.seller.my-products" class="topbar-nav-link" @activeClass="selected" {{on "click" (fn this.setView "seller")}}>Seller</LinkTo>
+        <LinkTo @route="dashboard.seller" class="topbar-nav-link" @activeClass="selected" {{on "click" (fn this.setView "seller")}}>Seller</LinkTo>
         {{/if}}
 
         {{#if this.isAdmin}}
-        <LinkTo @route="dashboard.admin.sellers" class="topbar-nav-link" @activeClass="selected" {{on "click" (fn this.setView "admin")}}>Admin</LinkTo>
+        <LinkTo @route="dashboard.admin" class="topbar-nav-link" @activeClass="selected" {{on "click" (fn this.setView "admin")}}>Admin</LinkTo>
         {{/if}}
     </nav>
     

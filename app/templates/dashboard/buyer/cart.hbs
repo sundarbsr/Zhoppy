@@ -6,7 +6,7 @@
   <div class="cart-content">
     <div class="cart-grid">
       {{#each this.model as |item|}}
-        <div class="cart-row">
+        <div class="cart-row" {{on "click" (fn this.toProductsPage item.product)}}>
           <div class="column image-column">
             <img src={{item.product.product-details.image}} alt="Product image" class="cart-image" />
           </div>

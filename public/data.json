@@ -18,7 +18,7 @@
             "listed-products": ["p_id"],
             "recived-orders": ["order_id"],
             "company-name": "",
-            "selling-approved": false
+            "selling-status": "String" // "Approved", "Revoked", "Pending"
         }
     },
 
@@ -47,5 +47,24 @@
             "rating": "Int"
         }]
 
+    },
+
+    "orders" : {
+        "id": "String",
+        "users_id": "String",
+        "status": "String", // "pending", "confirmed", "shipped", "delivered", "cancelled"
+        "order_date": "Date",
+        "delivery_date": "Date",
+        "address": "String",
+        "products": [
+            {
+                "product_id": "String",
+                "quantity": "Int",
+                "price_at_purchase": "Int",
+                "seller_id": "user_id"
+            }
+        ],
+        "total": "Int",
+        "payment_Status": "String" // "pending", "completed", "failed"
     }
 }

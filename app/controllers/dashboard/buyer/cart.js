@@ -36,13 +36,19 @@ export default class CartController extends Controller {
       // }
 
       @action
+      toProductsPage(product){
+        this.router.transitionTo("dashboard.buyer.details", product.id)
+      }
+
+      @action
       discountedPrice(price, discountPercent) {
         const discounted = price * (1 - discountPercent / 100);
         return discounted.toFixed(2); 
       }
 
       @action
-      async removeProduct(id){
+      async removeProduct(id, event){
+        event.stopPropagation();
         let user = await this.auth.getCurrentUsers();
         let cart = user["purchase-data"].cart;
         let removedCart = cart.filter(item => item.p_id != id);

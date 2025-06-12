@@ -12,6 +12,7 @@ export default class DashboardController extends Controller {
   @action
   setCurrentView(view) {
     this.currentView = view;
+    this.router.transitionTo("dashboard.buyer.products");
   }
   
 }

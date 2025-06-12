@@ -152,7 +152,7 @@ export default class AuthService extends Service {
         "purchase-data": {},
         "seller-data": {
           "company-name": companyname,
-          "selling-approved": false
+          "selling-approved": "Pending"
         }
       })
 
