@@ -11,14 +11,15 @@ Router.map(function () {
   this.route('signup');
   this.route('dashboard', function() {
     this.route('buyer', function() {
-      this.route('products');
-      this.route("details", {path: '/details/:id'})
+      this.route('products', function(){  
+        this.route("details", {path: '/:id'})
+      });
       this.route('cart');
     });
     this.route('seller', function(){
       this.route('my-products');
       this.route('add-product');
-      this.route("details", {path: '/details/:id'})
+      this.route("details", {path: '/:id'})
       this.route('edit-product', { path: '/edit/:id' });
     });
     this.route('admin',function(){

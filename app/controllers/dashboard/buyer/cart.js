@@ -37,7 +37,7 @@ export default class CartController extends Controller {
 
       @action
       toProductsPage(product){
-        this.router.transitionTo("dashboard.buyer.details", product.id)
+        this.router.transitionTo("dashboard.buyer.products.details", product.id)
       }
 
       @action

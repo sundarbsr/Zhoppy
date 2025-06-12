@@ -26,7 +26,7 @@ export default class ProductCardComponent extends Component {
       if (this.args.isSeller == true){
         this.router.transitionTo('dashboard.seller.details', product.id);
       }else{
-        this.router.transitionTo('dashboard.buyer.details', product.id);
+        this.router.transitionTo('dashboard.buyer.products.details', product.id);
       }
       
   }
